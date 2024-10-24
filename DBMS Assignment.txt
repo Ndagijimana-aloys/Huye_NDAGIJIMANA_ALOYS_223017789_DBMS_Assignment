@@ -1,0 +1,377 @@
+mysql>  CREATE DATABASE RUHANDE;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| huye2              |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| school             |
+| schools            |
+| sys                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> USE RUHANDE;
+Database changed
+mysql> CREATE TABLE NGOMA(ID INT(23),F_NAME CHAR(30),L_NAME CHAR(35),GENDER CHAR(22),PROVINCE CHAR(40),DISTRICT CHAR(45), SECTOR CHAR(45), SECTOR CHAR(40),CELL CHAR(34), email char(100), tel int(30));
+ERROR 1060 (42S21): Duplicate column name 'SECTOR'
+mysql> CREATE TABLE NGOMA(ID INT(23),F_NAME CHAR(30),L_NAME CHAR(35),GENDER CHAR(22),PROVINCE CHAR(40),DISTRICT CHAR(45), SECTOR CHAR(40),CELL CHAR(34), email char(100), tel int(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO NGOMA('001','MUTESI','ANITHA','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mutesanit@gmail.com','0797564536');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''001','MUTESI','ANITHA','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mutesanit@' at line 1
+mysql>  INSERT INTO NGOMA values('001','MUTESI','ANITHA','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mutesanit@gmail.com','0797564536');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from NGOMA;
++------+--------+--------+--------+----------+----------+--------+---------+---------------------+-----------+
+| ID   | F_NAME | L_NAME | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email               | tel       |
++------+--------+--------+--------+----------+----------+--------+---------+---------------------+-----------+
+|    1 | MUTESI | ANITHA | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com | 797564536 |
++------+--------+--------+--------+----------+----------+--------+---------+---------------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA values('001','MUTESI','ANITHA','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mutesanit@gmail.com','07877764536');
+ERROR 1264 (22003): Out of range value for column 'tel' at row 1
+mysql> INSERT INTO NGOMA values('002','INGABIRE','DENYSE','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','ingabdenyse@gmail.com','0787588536');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * form ngoma;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form ngoma' at line 1
+mysql> select * from ngoma;
++------+----------+--------+--------+----------+----------+--------+---------+-----------------------+-----------+
+| ID   | F_NAME   | L_NAME | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       |
++------+----------+--------+--------+----------+----------+--------+---------+-----------------------+-----------+
+|    1 | MUTESI   | ANITHA | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 |
+|    2 | INGABIRE | DENYSE | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 |
++------+----------+--------+--------+----------+----------+--------+---------+-----------------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA values('003','NIYOMUGABO','patrick','MALE','SOUTHERN','HUYE','NGOMA','RUHANDE','ingabdenyse@gmail.com','0788588539');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from ngoma;
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+|    1 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 |
+|    2 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 |
+|    3 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA values('4','IKUZWE','Jean','MALE','SOUTHERN','HUYE','NGOMA','RUHANDE','ikuzwjean@gmail.com','0796353423');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from ngoma;
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+|    1 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 |
+|    2 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 |
+|    3 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 |
+|    4 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA values('005','UWASE','Pellina','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','uwasepell@gmail.com','07896453423');
+ERROR 1264 (22003): Out of range value for column 'tel' at row 1
+mysql> INSERT INTO NGOMA values('005','UWASE','Pellina','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','uwasepell@gmail.com','07896453423');
+ERROR 1264 (22003): Out of range value for column 'tel' at row 1
+mysql> atler table NGOMA add STATUS char(1000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'atler table NGOMA add STATUS char(1000)' at line 1
+mysql> ALTER TABLE NGOMA ADD STATUS CHAR(100);
+Query OK, 4 rows affected (0.08 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from ngoma;
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+|    1 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+|    2 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+|    3 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+|    4 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update NGOMA SET ID='1199376584984563' where ID='1';
+ERROR 1264 (22003): Out of range value for column 'ID' at row 1
+mysql> ALTER TABLE NGOMA MODIFY ID CHAR(1000);
+ERROR 1074 (42000): Column length too big for column 'ID' (max = 255); use BLOB or TEXT instead
+mysql> ALTER TABLE NGOMA MODIFY ID CHAR(230);
+Query OK, 4 rows affected (0.07 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM NGOMA;
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1    | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 2    | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 3    | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 4    | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update NGOMA SET ID='1199376584984563' where ID='1';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM NGOMA;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 2                | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 3                | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 4                | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update NGOMA SET ID='1200376534984571' where ID='2';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update NGOMA SET ID='1200496534984556' where ID='3';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update NGOMA SET ID='11980376539084577' where ID='4';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from ngoma;
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID                | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1199376584984563  | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 1200376534984571  | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 1200496534984556  | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 11980376539084577 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql>  update NGOMA SET ID='1198037653904577' where ID='4';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from ngoma;
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID                | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1199376584984563  | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 1200376534984571  | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 1200496534984556  | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 11980376539084577 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql>  update NGOMA SET ID='1198037653904577' where ID='4';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from ngoma;
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID                | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1199376584984563  | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 1200376534984571  | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 1200496534984556  | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 11980376539084577 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql>  update NGOMA SET ID='1199964789986382' where ID='4';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from ngoma;
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID                | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1199376584984563  | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 1200376534984571  | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 1200496534984556  | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 11980376539084577 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++-------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET ID='1199964789986382' WHERE L_NAME='Jean';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       | STATUS |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 | NULL   |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 | NULL   |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 | NULL   |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 | NULL   |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql>  ALTER TABLE STUDENT  DROP STATUS;
+ERROR 1146 (42S02): Table 'ruhande.student' doesn't exist
+mysql> ALTER TABLE NGOMA  DROP STATUS;
+Query OK, 4 rows affected (0.07 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel       |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536 |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536 |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539 |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA MODIFY tel CHAR(230);
+Query OK, 4 rows affected (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO NGOMA values('1195678649084431','ISHIMWE','Gashema','MALE','SOUTHERN','HUYE','NGOMA','RUHANDE','ishimwgash@gmail.com','0726389075');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO NGOMA values('1199078889084499','MUCYO','Gedeon','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mucyogedeon@gmail.com','0786511001');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel        |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536  |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536  |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539  |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423  |
+| 1195678649084431 | ISHIMWE    | Gashema | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ishimwgash@gmail.com  | 0726389075 |
+| 1199078889084499 | MUCYO      | Gedeon  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mucyogedeon@gmail.com | 0786511001 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA values('118178649084477','MAHORO','ANGE','MALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mahange@gmail.com','0790005534');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO NGOMA values('1199078889084466','TUYIZERE','ANDREW','MALE','SOUTHERN','HUYE','NGOMA','RUHANDE','tuyizereand@gmail.com','0796511032');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel        |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536  |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536  |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539  |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423  |
+| 1195678649084431 | ISHIMWE    | Gashema | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ishimwgash@gmail.com  | 0726389075 |
+| 1199078889084499 | MUCYO      | Gedeon  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mucyogedeon@gmail.com | 0786511001 |
+| 118178649084477  | MAHORO     | ANGE    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mahange@gmail.com     | 0790005534 |
+| 1199078889084466 | TUYIZERE   | ANDREW  | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | tuyizereand@gmail.com | 0796511032 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+mysql> INSERT INTO NGOMA values('1200478889084455','NDAGIJ','ALOYS','MALE','SOUTHERN','HUYE','NGOMA','RUHANDE','ndagijalo@gmail.com','0726511090');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO NGOMA values('1200078889084000','MUJAWIMANA','Eunice','FEMALE','SOUTHERN','HUYE','NGOMA','RUHANDE','mujaweun@gmail.com','0796511078');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel        |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536  |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536  |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539  |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423  |
+| 1195678649084431 | ISHIMWE    | Gashema | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ishimwgash@gmail.com  | 0726389075 |
+| 1199078889084499 | MUCYO      | Gedeon  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mucyogedeon@gmail.com | 0786511001 |
+| 118178649084477  | MAHORO     | ANGE    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mahange@gmail.com     | 0790005534 |
+| 1199078889084466 | TUYIZERE   | ANDREW  | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | tuyizereand@gmail.com | 0796511032 |
+| 1200478889084455 | NDAGIJ     | ALOYS   | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ndagijalo@gmail.com   | 0726511090 |
+| 1200078889084000 | MUJAWIMANA | Eunice  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mujaweun@gmail.com    | 0796511078 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET ID='1199964789986382' WHERE L_NAME='Jean';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> select * from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel        |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536  |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536  |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539  |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423  |
+| 1195678649084431 | ISHIMWE    | Gashema | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ishimwgash@gmail.com  | 0726389075 |
+| 1199078889084499 | MUCYO      | Gedeon  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mucyogedeon@gmail.com | 0786511001 |
+| 118178649084477  | MAHORO     | ANGE    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mahange@gmail.com     | 0790005534 |
+| 1199078889084466 | TUYIZERE   | ANDREW  | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | tuyizereand@gmail.com | 0796511032 |
+| 1200478889084455 | NDAGIJ     | ALOYS   | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ndagijalo@gmail.com   | 0726511090 |
+| 1200078889084000 | MUJAWIMANA | Eunice  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mujaweun@gmail.com    | 0796511078 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql>  UPDATE NGOMA SET ID='1181786490844777' WHERE L_NAME='ANGE';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel        |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 797564536  |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 787588536  |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 788588539  |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 796353423  |
+| 1195678649084431 | ISHIMWE    | Gashema | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ishimwgash@gmail.com  | 0726389075 |
+| 1199078889084499 | MUCYO      | Gedeon  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mucyogedeon@gmail.com | 0786511001 |
+| 1181786490844777 | MAHORO     | ANGE    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mahange@gmail.com     | 0790005534 |
+| 1199078889084466 | TUYIZERE   | ANDREW  | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | tuyizereand@gmail.com | 0796511032 |
+| 1200478889084455 | NDAGIJ     | ALOYS   | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ndagijalo@gmail.com   | 0726511090 |
+| 1200078889084000 | MUJAWIMANA | Eunice  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mujaweun@gmail.com    | 0796511078 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET tel='0797564536' WHERE L_NAME='ANITHA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE NGOMA SET tel='0787588536' WHERE L_NAME='DENYSE';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE NGOMA SET tel='0788588539' WHERE L_NAME='patrick';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE NGOMA SET tel='0796353423' WHERE L_NAME='Jean';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from ngoma;
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| ID               | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT | SECTOR | CELL    | email                 | tel        |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+| 1199376584984563 | MUTESI     | ANITHA  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mutesanit@gmail.com   | 0797564536 |
+| 1200376534984571 | INGABIRE   | DENYSE  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 0787588536 |
+| 1200496534984556 | NIYOMUGABO | patrick | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ingabdenyse@gmail.com | 0788588539 |
+| 1199964789986382 | IKUZWE     | Jean    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ikuzwjean@gmail.com   | 0796353423 |
+| 1195678649084431 | ISHIMWE    | Gashema | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ishimwgash@gmail.com  | 0726389075 |
+| 1199078889084499 | MUCYO      | Gedeon  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mucyogedeon@gmail.com | 0786511001 |
+| 1181786490844777 | MAHORO     | ANGE    | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mahange@gmail.com     | 0790005534 |
+| 1199078889084466 | TUYIZERE   | ANDREW  | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | tuyizereand@gmail.com | 0796511032 |
+| 1200478889084455 | NDAGIJ     | ALOYS   | MALE   | SOUTHERN | HUYE     | NGOMA  | RUHANDE | ndagijalo@gmail.com   | 0726511090 |
+| 1200078889084000 | MUJAWIMANA | Eunice  | FEMALE | SOUTHERN | HUYE     | NGOMA  | RUHANDE | mujaweun@gmail.com    | 0796511078 |
++------------------+------------+---------+--------+----------+----------+--------+---------+-----------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql>
